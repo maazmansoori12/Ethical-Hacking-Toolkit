@@ -72,8 +72,8 @@ def log_request():
 # LOGIN
 # -----------------------
 
-USERNAME = "admin"
-PASSWORD = "1234"
+USERNAME = "mueza"
+PASSWORD = "zaru@2406"
 
 
 @app.route("/login", methods=["GET", "POST"])
