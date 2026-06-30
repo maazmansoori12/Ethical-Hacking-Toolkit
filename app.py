@@ -106,6 +106,7 @@ def logout():
 # -----------------------
 
 @app.route("/")
+@app.route("/dashboard")
 def home():
 
     if "user" not in session:
@@ -889,12 +890,11 @@ def qr_generator():
         qr_image=qr_image
     )
 
-# -----------------------
-# MAIN
-# -----------------------
 
 import os
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=port)# -----------------------
+# MAIN
+# ---------------
