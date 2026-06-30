@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Scanner</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="dashboard-background">
+        <div class="glow glow1"></div>
+        <div class="glow glow2"></div>
+    </div>
+
+    <div class="tool-container">
+
+        <div class="tool-box">
+
+            <h1>📡 Network Scanner</h1>
+
+            <p class="tool-description">
+                Discover active devices on your local network.
+            </p>
+
+            <form method="POST">
+
+                <input
+                    type="text"
+                    name="ip_base"
+                    placeholder="Example: 192.168.0"
+                    required>
+
+                <button type="submit">
+                    🚀 Scan Network
+                </button>
+
+            </form>
+
+            {% if results %}
+
+            <div class="result-box">
+
+                <h3>✅ Scan Results</h3>
+
+                <div class="scan-results">
+
+                    {% for result in results %}
+                        <div class="scan-item">
+                            {{ result }}
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+            {% endif %}
+
+            <a href="/" class="back-btn">
+                ⬅ Back Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

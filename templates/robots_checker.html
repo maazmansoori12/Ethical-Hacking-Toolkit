@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robots.txt Checker</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="dashboard-background">
+        <div class="glow glow1"></div>
+        <div class="glow glow2"></div>
+    </div>
+
+    <div class="tool-container">
+
+        <div class="tool-box">
+
+            <h1>🤖 Robots.txt Checker</h1>
+
+            <p class="tool-description">
+                Fetch and analyze the robots.txt file of any website.
+            </p>
+
+            <form method="POST">
+
+                <input
+                    type="text"
+                    name="domain"
+                    placeholder="Enter Domain (example: google.com)"
+                    required>
+
+                <button type="submit">
+                    🤖 Check Robots.txt
+                </button>
+
+            </form>
+
+            {% if error %}
+
+            <div class="result-box">
+
+                <h3>❌ Error</h3>
+
+                <p>{{ error }}</p>
+
+            </div>
+
+            {% endif %}
+
+            {% if robots_content %}
+
+            <div class="result-box">
+
+                <h3>📄 Robots.txt Content</h3>
+
+                <pre style="
+                    white-space: pre-wrap;
+                    color:white;
+                    text-align:left;
+                    overflow:auto;
+                ">{{ robots_content }}</pre>
+
+            </div>
+
+            {% endif %}
+
+            <a href="/" class="back-btn">
+                ⬅ Back Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

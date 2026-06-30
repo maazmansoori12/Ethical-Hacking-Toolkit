@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subnet Calculator</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="dashboard-background">
+        <div class="glow glow1"></div>
+        <div class="glow glow2"></div>
+    </div>
+
+    <div class="tool-container">
+
+        <div class="tool-box">
+
+            <h1>🧮 Subnet Calculator</h1>
+
+            <p class="tool-description">
+                Calculate network details, subnet mask, broadcast address and host information.
+            </p>
+
+            <form method="POST">
+
+                <input
+                    type="text"
+                    name="ip"
+                    placeholder="Enter IP Address (Example: 192.168.1.0)"
+                    required>
+
+                <input
+                    type="number"
+                    name="cidr"
+                    min="0"
+                    max="32"
+                    placeholder="CIDR (Example: 24)"
+                    required>
+
+                <button type="submit">
+                    🧮 Calculate Subnet
+                </button>
+
+            </form>
+
+            {% if result %}
+
+                <div class="result-box">
+
+                    {% if result.error %}
+
+                        <h3>❌ Error</h3>
+                        <p>{{ result.error }}</p>
+
+                    {% else %}
+
+                        <h3>🌐 Network Information</h3>
+
+                        <div class="whois-item">
+                            <strong>📡 Network Address</strong>
+                            <p>{{ result.network }}</p>
+                        </div>
+
+                        <div class="whois-item">
+                            <strong>📢 Broadcast Address</strong>
+                            <p>{{ result.broadcast }}</p>
+                        </div>
+
+                        <div class="whois-item">
+                            <strong>🛡️ Subnet Mask</strong>
+                            <p>{{ result.subnet_mask }}</p>
+                        </div>
+
+                        <div class="whois-item">
+                            <strong>📊 Total Hosts</strong>
+                            <p>{{ result.total_hosts }}</p>
+                        </div>
+
+                        <div class="whois-item">
+                            <strong>👥 Usable Hosts</strong>
+                            <p>{{ result.usable_hosts }}</p>
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+            {% endif %}
+
+            <a href="/" class="back-btn">
+                ⬅ Back Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

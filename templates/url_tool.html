@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Encoder / Decoder</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="dashboard-background">
+        <div class="glow glow1"></div>
+        <div class="glow glow2"></div>
+    </div>
+
+    <div class="tool-container">
+
+        <div class="tool-box">
+
+            <h1>🔗 URL Encoder / Decoder</h1>
+
+            <p class="tool-description">
+                Encode URLs for safe transmission or decode encoded URLs back to readable format.
+            </p>
+
+            <form method="POST">
+
+                <textarea
+                    name="text"
+                    rows="5"
+                    placeholder="Enter URL here..."
+                    required></textarea>
+
+                <div style="margin-top:15px;">
+
+                    <button
+                        type="submit"
+                        name="action"
+                        value="encode">
+                        🔒 Encode URL
+                    </button>
+
+                    <button
+                        type="submit"
+                        name="action"
+                        value="decode">
+                        🔓 Decode URL
+                    </button>
+
+                </div>
+
+            </form>
+
+            {% if encoded_url %}
+
+            <div class="result-box">
+
+                <h3>✅ Encoded URL</h3>
+
+                <div class="generated-password">
+                    {{ encoded_url }}
+                </div>
+
+            </div>
+
+            {% endif %}
+
+            {% if decoded_url %}
+
+            <div class="result-box">
+
+                <h3>✅ Decoded URL</h3>
+
+                <div class="generated-password">
+                    {{ decoded_url }}
+                </div>
+
+            </div>
+
+            {% endif %}
+
+            <a href="/" class="back-btn">
+                ⬅ Back Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

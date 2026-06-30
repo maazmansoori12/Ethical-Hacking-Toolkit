@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>System Logs</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="dashboard-background">
+        <div class="glow glow1"></div>
+        <div class="glow glow2"></div>
+    </div>
+
+    <div class="tool-container">
+
+        <div class="tool-box">
+
+            <h1>📋 System Logs</h1>
+
+            <p class="tool-description">
+                Monitor user activity and application requests.
+            </p>
+
+            <div class="table-wrapper">
+
+                <table class="logs-table">
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>IP Address</th>
+                            <th>Endpoint</th>
+                            <th>Date & Time</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                    {% for row in logs %}
+
+                        <tr>
+                            <td>{{ row[0] }}</td>
+                            <td>{{ row[1] }}</td>
+                            <td>{{ row[2] }}</td>
+                            <td>{{ row[3] }}</td>
+                        </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <a href="/" class="back-btn">
+                ⬅ Back Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

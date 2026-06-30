@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Header Analyzer</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="dashboard-background">
+        <div class="glow glow1"></div>
+        <div class="glow glow2"></div>
+    </div>
+
+    <div class="tool-container">
+
+        <div class="tool-box">
+
+            <h1>📧 Email Header Analyzer</h1>
+
+            <p class="tool-description">
+                Paste an email header and extract important information.
+            </p>
+
+            <form method="POST">
+
+                <textarea
+                    name="header"
+                    rows="12"
+                    placeholder="Paste Email Header Here..."
+                    required></textarea>
+
+                <button type="submit">
+                    📧 Analyze Header
+                </button>
+
+            </form>
+
+            {% if result %}
+
+            <div class="result-box">
+
+                <h3>📋 Analysis Result</h3>
+
+                {% for key, value in result.items() %}
+
+                <div class="whois-item">
+                    <strong>{{ key }}</strong>
+                    <p>{{ value }}</p>
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+            {% endif %}
+
+            <a href="/" class="back-btn">
+                ⬅ Back Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

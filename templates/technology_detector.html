@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Technology Detector</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="dashboard-background">
+        <div class="glow glow1"></div>
+        <div class="glow glow2"></div>
+    </div>
+
+    <div class="tool-container">
+
+        <div class="tool-box">
+
+            <h1>🛠️ Website Technology Detector</h1>
+
+            <p class="tool-description">
+                Detect technologies used by a website.
+            </p>
+
+            <form method="POST">
+
+                <input
+                    type="text"
+                    name="url"
+                    placeholder="Enter Website (example: openai.com)"
+                    required>
+
+                <button type="submit">
+                    🔍 Detect Technology
+                </button>
+
+            </form>
+
+            {% if result %}
+
+            <div class="result-box">
+
+                <h3>🛠️ Detection Results</h3>
+
+                {% for item in result %}
+
+                <div class="whois-item">
+                    <p>{{ item }}</p>
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+            {% endif %}
+
+            <a href="/" class="back-btn">
+                ⬅ Back Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

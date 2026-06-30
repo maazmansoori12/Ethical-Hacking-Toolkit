@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP Header Analyzer</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="dashboard-background">
+        <div class="glow glow1"></div>
+        <div class="glow glow2"></div>
+    </div>
+
+    <div class="tool-container">
+
+        <div class="tool-box">
+
+            <h1>💻🔍 HTTP Header Analyzer</h1>
+
+            <p class="tool-description">
+                Analyze HTTP response headers and basic web server information.
+            </p>
+
+            <form method="POST">
+
+                <input
+                    type="text"
+                    name="url"
+                    placeholder="Enter Website (example: google.com)"
+                    required>
+
+                <button type="submit">
+                    🔍 Analyze Headers
+                </button>
+
+            </form>
+
+            {% if error %}
+
+            <div class="result-box">
+                <h3>❌ Error</h3>
+                <p>{{ error }}</p>
+            </div>
+
+            {% endif %}
+
+            {% if headers %}
+
+            <div class="result-box">
+
+                <h3>📡 HTTP Headers</h3>
+
+                {% for key, value in headers.items() %}
+
+                <div class="whois-item">
+                    <strong>{{ key }}</strong>
+                    <p>{{ value }}</p>
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+            {% endif %}
+
+            <a href="/" class="back-btn">
+                ⬅ Back Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Geolocation Lookup</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="dashboard-background">
+        <div class="glow glow1"></div>
+        <div class="glow glow2"></div>
+    </div>
+
+    <div class="tool-container">
+
+        <div class="tool-box">
+
+            <h1>🌍 IP Geolocation Lookup</h1>
+
+            <p class="tool-description">
+                Find location and ISP information for any public IP address.
+            </p>
+
+            <form method="POST">
+
+                <input
+                    type="text"
+                    name="ip"
+                    placeholder="Enter IP Address (Example: 8.8.8.8)"
+                    required>
+
+                <button type="submit">
+                    🔍 Lookup IP
+                </button>
+
+            </form>
+
+            {% if result %}
+
+            <div class="result-box">
+
+                {% if result.error %}
+
+                    <h3>❌ Error</h3>
+                    <p>{{ result.error }}</p>
+
+                {% else %}
+
+                    <h3>🌎 IP Information</h3>
+
+                    <div class="whois-item">
+                        <strong>📡 IP Address</strong>
+                        <p>{{ result.ip }}</p>
+                    </div>
+
+                    <div class="whois-item">
+                        <strong>🏳 Country</strong>
+                        <p>{{ result.country }}</p>
+                    </div>
+
+                    <div class="whois-item">
+                        <strong>📍 Region</strong>
+                        <p>{{ result.region }}</p>
+                    </div>
+
+                    <div class="whois-item">
+                        <strong>🏙 City</strong>
+                        <p>{{ result.city }}</p>
+                    </div>
+
+                    <div class="whois-item">
+                        <strong>🌐 ISP</strong>
+                        <p>{{ result.isp }}</p>
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+            {% endif %}
+
+            <a href="/" class="back-btn">
+                ⬅ Back Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

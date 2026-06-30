@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>QR Code Generator</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+```
+
+</head>
+
+<body>
+
+<div class="dashboard-background">
+
+```
+<div class="glow glow1"></div>
+
+<div class="glow glow2"></div>
+```
+
+</div>
+
+<div class="tool-container">
+
+```
+<div class="tool-box">
+
+    <h1>📱 QR Code Generator</h1>
+
+    <p class="tool-description">
+        Generate QR Codes instantly from URLs, text, emails, or any data.
+    </p>
+
+    <form method="POST">
+
+        <input
+            type="text"
+            name="data"
+            placeholder="Enter URL or Text"
+            required>
+
+        <button type="submit">
+            📱 Generate QR Code
+        </button>
+
+    </form>
+
+    {% if qr_image %}
+
+    <div class="result-box">
+
+        <h3>✅ QR Code Generated</h3>
+
+        <img
+            src="{{ url_for('static', filename=qr_image) }}"
+            alt="QR Code"
+            style="
+                max-width:250px;
+                background:white;
+                padding:10px;
+                border-radius:12px;
+                margin-top:15px;
+            ">
+
+    </div>
+
+    {% endif %}
+
+    <a href="/" class="back-btn">
+        ⬅ Back Dashboard
+    </a>
+
+</div>
+```
+
+</div>
+
+</body>
+
+</html>

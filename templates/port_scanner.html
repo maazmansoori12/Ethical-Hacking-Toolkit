@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Port Scanner</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="dashboard-background">
+        <div class="glow glow1"></div>
+        <div class="glow glow2"></div>
+    </div>
+
+    <div class="tool-container">
+
+        <div class="tool-box">
+
+            <h1>📡 Port Scanner</h1>
+
+            <p class="tool-description">
+                Scan common ports on a host and identify open services.
+            </p>
+
+            <form method="POST">
+
+                <input
+                    type="text"
+                    name="host"
+                    placeholder="Enter Host (127.0.0.1 or localhost)"
+                    required>
+
+                <button type="submit">
+                    🚀 Scan Ports
+                </button>
+
+            </form>
+
+            {% if results %}
+
+            <div class="result-box">
+
+                <h3>✅ Scan Results</h3>
+
+                <div class="table-wrapper">
+
+                    <table class="port-table">
+
+                        <thead>
+                            <tr>
+                                <th>Port</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                        {% for port, status in results %}
+
+                            <tr>
+                                <td>{{ port }}</td>
+                                <td>
+                                    {% if status == "OPEN" %}
+                                        🟢 {{ status }}
+                                    {% else %}
+                                        🔴 {{ status }}
+                                    {% endif %}
+                                </td>
+                            </tr>
+
+                        {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            {% endif %}
+
+            <a href="/" class="back-btn">
+                ⬅ Back Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

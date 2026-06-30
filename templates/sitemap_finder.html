@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap Finder</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="dashboard-background">
+        <div class="glow glow1"></div>
+        <div class="glow glow2"></div>
+    </div>
+
+    <div class="tool-container">
+
+        <div class="tool-box">
+
+            <h1>🗺️ Sitemap Finder</h1>
+
+            <p class="tool-description">
+                Find and view sitemap.xml of any website.
+            </p>
+
+            <form method="POST">
+
+                <input
+                    type="text"
+                    name="domain"
+                    placeholder="Enter Domain (example: google.com)"
+                    required>
+
+                <button type="submit">
+                    🗺️ Find Sitemap
+                </button>
+
+            </form>
+
+            {% if error %}
+
+            <div class="result-box">
+
+                <h3>❌ Error</h3>
+
+                <p>{{ error }}</p>
+
+            </div>
+
+            {% endif %}
+
+            {% if sitemap_content %}
+
+            <div class="result-box">
+
+                <h3>📄 Sitemap Content</h3>
+
+                <pre style="
+                    white-space: pre-wrap;
+                    color:white;
+                    text-align:left;
+                    overflow:auto;
+                    max-height:500px;
+                ">{{ sitemap_content }}</pre>
+
+            </div>
+
+            {% endif %}
+
+            <a href="/" class="back-btn">
+                ⬅ Back Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

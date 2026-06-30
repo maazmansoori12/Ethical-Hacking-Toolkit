@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Toolkit Pro</title>
+
+```
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+```
+
+</head>
+
+<body>
+
+<div class="dashboard-background">
+    <div class="glow glow1"></div>
+    <div class="glow glow2"></div>
+</div>
+
+<div class="dashboard-container">
+
+```
+<aside class="sidebar">
+
+    <div class="logo-section">
+        <h2>🛡️ EH Toolkit</h2>
+        <p>Cyber Security Lab</p>
+    </div>
+
+    <div class="user-box">
+        <h3>👤 {{ user }}</h3>
+        <span>Authorized User</span>
+    </div>
+
+    <a href="/logout" class="logout-btn">
+        🚪 Logout
+    </a>
+
+</aside>
+
+<main class="main-content">
+
+    <div class="hero-card">
+
+        <div class="hero-top">
+
+            <div>
+
+                <h1>🛡️ Cyber Security Toolkit Pro</h1>
+
+                <p>
+                    Welcome back, {{ user }}.
+                    Your professional cybersecurity workspace is ready.
+                </p>
+
+            </div>
+
+            <div class="version-badge">
+                Version 1.0
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <h2>20+</h2>
+            <p>Security Tools</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>24/7</h2>
+            <p>Toolkit Access</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>100%</h2>
+            <p>Flask Powered</p>
+        </div>
+
+    </div>
+
+    <div class="tools-grid">
+
+        <a href="/logs" class="tool-card">
+            <span>📋</span>
+            <h3>View Logs</h3>
+        </a>
+
+        <a href="/password-checker" class="tool-card">
+            <span>🛡️</span>
+            <h3>Password Checker</h3>
+        </a>
+
+        <a href="/url-tool" class="tool-card">
+            <span>🔗</span>
+            <h3>URL Tool</h3>
+        </a>
+
+        <a href="/hash-generator" class="tool-card">
+            <span>🔐</span>
+            <h3>Hash Generator</h3>
+        </a>
+
+        <a href="/base64-tool" class="tool-card">
+            <span>🧬</span>
+            <h3>Base64 Tool</h3>
+        </a>
+
+        <a href="/password-generator" class="tool-card">
+            <span>⚡</span>
+            <h3>Password Generator</h3>
+        </a>
+
+        <a href="/dns-lookup" class="tool-card">
+            <span>🌐</span>
+            <h3>DNS Lookup</h3>
+        </a>
+
+        <a href="/whois-lookup" class="tool-card">
+            <span>🔍</span>
+            <h3>WHOIS Lookup</h3>
+        </a>
+
+        <a href="/ip-lookup" class="tool-card">
+            <span>🌍</span>
+            <h3>IP Lookup</h3>
+        </a>
+
+        <a href="/header-analyzer" class="tool-card">
+            <span>📑</span>
+            <h3>Header Analyzer</h3>
+        </a>
+
+        <a href="/technology-detector" class="tool-card">
+            <span>🛠️</span>
+            <h3>Tech Detector</h3>
+        </a>
+
+        <a href="/ssl-checker" class="tool-card">
+            <span>🔒</span>
+            <h3>SSL Checker</h3>
+        </a>
+
+        <a href="/robots-checker" class="tool-card">
+            <span>🤖</span>
+            <h3>Robots Checker</h3>
+        </a>
+
+        <a href="/sitemap-finder" class="tool-card">
+            <span>🗺️</span>
+            <h3>Sitemap Finder</h3>
+        </a>
+
+        <a href="/email-header-analyzer" class="tool-card">
+            <span>📧</span>
+            <h3>Email Header Analyzer</h3>
+        </a>
+
+        <a href="/subnet-calculator" class="tool-card">
+            <span>🧮</span>
+            <h3>Subnet Calculator</h3>
+        </a>
+
+        <a href="/port-scanner" class="tool-card">
+            <span>📡</span>
+            <h3>Port Scanner</h3>
+        </a>
+
+        <a href="/network-scanner" class="tool-card">
+            <span>📶</span>
+            <h3>Network Scanner</h3>
+        </a>
+
+        <a href="/generate-pdf" class="tool-card">
+            <span>📄</span>
+            <h3>Generate PDF</h3>
+        </a>
+
+        <a href="/qr-generator" class="tool-card">
+            <span>📱</span>
+            <h3>QR Generator</h3>
+        </a>
+
+    </div>
+
+    <footer class="dashboard-footer">
+
+        <p>
+            🛡️ Developed by Maaz Mansoori |
+            Ethical Hacking & Cyber Security Toolkit
+        </p>
+
+    </footer>
+
+</main>
+```
+
+</div>
+
+</body>
+</html>

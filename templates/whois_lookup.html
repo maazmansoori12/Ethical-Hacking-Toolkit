@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHOIS Lookup</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="dashboard-background">
+        <div class="glow glow1"></div>
+        <div class="glow glow2"></div>
+    </div>
+
+    <div class="tool-container">
+
+        <div class="tool-box">
+
+            <h1>🔍 WHOIS Lookup</h1>
+
+            <p class="tool-description">
+                Retrieve domain registration and ownership information.
+            </p>
+
+            <form method="POST">
+
+                <input
+                    type="text"
+                    name="domain"
+                    placeholder="Enter Domain (example: google.com)"
+                    required>
+
+                <button type="submit">
+                    🌐 Lookup WHOIS
+                </button>
+
+            </form>
+
+            {% if result %}
+
+                <div class="result-box">
+
+                    {% if result.error %}
+
+                        <h3>❌ Error</h3>
+                        <p>{{ result.error }}</p>
+
+                    {% else %}
+
+                        <h3>✅ WHOIS Information</h3>
+
+                        <div class="whois-item">
+                            <strong>🌍 Domain</strong>
+                            <p>{{ result.domain }}</p>
+                        </div>
+
+                        <div class="whois-item">
+                            <strong>🏢 Registrar</strong>
+                            <p>{{ result.registrar }}</p>
+                        </div>
+
+                        <div class="whois-item">
+                            <strong>📅 Creation Date</strong>
+                            <p>{{ result.creation_date }}</p>
+                        </div>
+
+                        <div class="whois-item">
+                            <strong>⏳ Expiration Date</strong>
+                            <p>{{ result.expiration_date }}</p>
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+            {% endif %}
+
+            <a href="/" class="back-btn">
+                ⬅ Back Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNS Lookup</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="dashboard-background">
+        <div class="glow glow1"></div>
+        <div class="glow glow2"></div>
+    </div>
+
+    <div class="tool-container">
+
+        <div class="tool-box">
+
+            <h1>🌐 DNS Lookup</h1>
+
+            <p class="tool-description">
+                Convert a domain name into its corresponding IP address.
+            </p>
+
+            <form method="POST">
+
+                <input
+                    type="text"
+                    name="domain"
+                    placeholder="Enter Domain (example: google.com)"
+                    required>
+
+                <button type="submit">
+                    🔍 Lookup DNS
+                </button>
+
+            </form>
+
+            {% if ip_address %}
+
+            <div class="result-box">
+
+                <h3>✅ Result</h3>
+
+                <p>
+                    <strong>IP Address:</strong>
+                    {{ ip_address }}
+                </p>
+
+            </div>
+
+            {% endif %}
+
+            <a href="/" class="back-btn">
+                ⬅ Back Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

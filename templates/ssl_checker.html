@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSL Certificate Checker</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="dashboard-background">
+        <div class="glow glow1"></div>
+        <div class="glow glow2"></div>
+    </div>
+
+    <div class="tool-container">
+
+        <div class="tool-box">
+
+            <h1>🔒 SSL Certificate Checker</h1>
+
+            <p class="tool-description">
+                Check SSL certificate details of any website.
+            </p>
+
+            <form method="POST">
+
+                <input
+                    type="text"
+                    name="domain"
+                    placeholder="Enter Domain (example: google.com)"
+                    required>
+
+                <button type="submit">
+                    🔍 Check SSL
+                </button>
+
+            </form>
+
+            {% if result %}
+
+                <div class="result-box">
+
+                    {% if result.error %}
+
+                        <h3>❌ Error</h3>
+                        <p>{{ result.error }}</p>
+
+                    {% else %}
+
+                        <h3>🔐 Certificate Information</h3>
+
+                        <div class="whois-item">
+                            <strong>🌐 Domain</strong>
+                            <p>{{ request.form.domain }}</p>
+                        </div>
+
+                        <div class="whois-item">
+                            <strong>🏢 Subject</strong>
+                            <p>{{ result.subject }}</p>
+                        </div>
+
+                        <div class="whois-item">
+                            <strong>🏛 Issuer</strong>
+                            <p>{{ result.issuer }}</p>
+                        </div>
+
+                        <div class="whois-item">
+                            <strong>📅 Valid From</strong>
+                            <p>{{ result.valid_from }}</p>
+                        </div>
+
+                        <div class="whois-item">
+                            <strong>⏳ Valid Until</strong>
+                            <p>{{ result.valid_until }}</p>
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+            {% endif %}
+
+            <a href="/" class="back-btn">
+                ⬅ Back Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

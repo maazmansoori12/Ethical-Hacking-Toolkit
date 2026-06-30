@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hash Generator</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="dashboard-background">
+        <div class="glow glow1"></div>
+        <div class="glow glow2"></div>
+    </div>
+
+    <div class="tool-container">
+
+        <div class="tool-box">
+
+            <h1>🔐 Hash Generator</h1>
+
+            <p class="tool-description">
+                Generate MD5, SHA1 and SHA256 hashes instantly.
+            </p>
+
+            <form method="POST">
+
+                <textarea
+                    name="text"
+                    rows="6"
+                    placeholder="Enter text here..."
+                    required></textarea>
+
+                <button type="submit">
+                    ⚡ Generate Hash
+                </button>
+
+            </form>
+
+            {% if md5_hash %}
+
+            <div class="result-box">
+
+                <h3>✅ Generated Hashes</h3>
+
+                <div class="hash-item">
+                    <strong>MD5</strong>
+                    <p>{{ md5_hash }}</p>
+                </div>
+
+                <div class="hash-item">
+                    <strong>SHA1</strong>
+                    <p>{{ sha1_hash }}</p>
+                </div>
+
+                <div class="hash-item">
+                    <strong>SHA256</strong>
+                    <p>{{ sha256_hash }}</p>
+                </div>
+
+            </div>
+
+            {% endif %}
+
+            <a href="/" class="back-btn">
+                ⬅ Back Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
